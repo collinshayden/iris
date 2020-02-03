@@ -10,9 +10,7 @@ path = "/Users/haydencollins/Desktop/Comp-Sci/misc/irisdata.csv"
 dataArray = np.genfromtxt(path,delimiter=",",dtype=None,encoding='utf-8-sig')
 
 class Iris(object):
-    def __init__(self,input_nodes,output_nodes,dataArray):
-        self.input_nodes = input_nodes
-        self.output_nodes = output_nodes
+    def __init__(self,dataArray):
         self.dataArray = dataArray
 
         #empty arrays
@@ -67,7 +65,7 @@ class Iris(object):
 
         print("Percent Accuracy = "+str(self.percentAccuracy))
 
-iris = Iris(4,3,dataArray)
+iris = Iris(dataArray)
 Iris.Data(iris)
 Iris.Train(iris)
 Iris.Predict(iris)
