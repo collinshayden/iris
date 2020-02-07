@@ -1,5 +1,4 @@
 #libraries
-import pandas as pd
 import numpy as np
 import os
 import random
@@ -28,7 +27,7 @@ class Iris(object):
         self.petal_length = []
         self.petal_width = []
 
-        self.KNC = KNeighborsClassifier(n_neighbors=4)
+        self.KNC = KNeighborsClassifier(n_neighbors=5)
 
     def Data(self):#organizes data
         for i in self.dataArray:
@@ -49,6 +48,7 @@ class Iris(object):
     def Predict(self):
         #KNC.predict(X) where X is unlabelled data, takes the data points and compares them to nearby labelled data to identify a classification
         self.prediction = self.KNC.predict(self.testData)
+        print(self.prediction)
 
     def Scoring(self):
         self.score=0
@@ -65,7 +65,9 @@ class Iris(object):
 
         print("Percent Accuracy = "+str(self.percentAccuracy))
 
-iris = Iris(dataArray)
+iris = Iris(dataArray)#creates an Iris class with dataArray(includes both data and targets) as the input
+
+#calling iris methods
 Iris.Data(iris)
 Iris.Train(iris)
 Iris.Predict(iris)
